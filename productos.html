@@ -9,6 +9,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  <link rel="icon" href="assets/img/LOGO-DISAH-AZÚL.png">
 </head>
 <body>
 
@@ -45,8 +46,8 @@
   <div class="container-xl page-hero-content">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
-        <li class="breadcrumb-item active">Productos</li>
+        <li class="breadcrumb-item">    <a href="index.html" style="font-size: 12pt;">Inicio</a>      </li>
+        <li class="breadcrumb-item active text-white">Productos</li>
       </ol>
     </nav>
     <h1 class="page-hero-title">Catálogo de Productos</h1>
@@ -61,7 +62,8 @@
   <aside class="catalog-sidebar">
     <h6 class="sidebar-heading">Categorías</h6>
     <ul class="sidebar-nav">
-      <li><a href="#compresores" class="sn-link active"><i class="fas fa-wind"></i> Compresores y Vacío</a></li>
+      <li><a href="#filtros" class="sn-link active"><i class="fas fa-wind"></i> Filtros</a></li>
+      <li><a href="#compresores" class="sn-link"><i class="fas fa-wind"></i> Compresores y Vacío</a></li>
       <li><a href="#consolas" class="sn-link"><i class="fas fa-th-large"></i> Consolas</a></li>
       <li><a href="#cortinas" class="sn-link"><i class="fas fa-border-all"></i> Cortinas Antibacterianas</a></li>
       <li><a href="#oxigeno" class="sn-link"><i class="fas fa-lungs"></i> Oxígeno & Gases</a></li>
@@ -85,6 +87,7 @@
 
     <!-- Navegación móvil de categorías (oculta en desktop, visible en tablet/móvil) -->
     <nav class="catalog-mobile-nav d-none">
+      <a href="#filtros" class="cmn-btn"><i class="fas fa-wind me-1"></i>Filtros</a>
       <a href="#compresores" class="cmn-btn"><i class="fas fa-wind me-1"></i>Compresores y Vacío</a>
       <a href="#consolas" class="cmn-btn"><i class="fas fa-th-large me-1"></i>Consolas</a>
       <a href="#cortinas" class="cmn-btn"><i class="fas fa-border-all me-1"></i>Cortinas</a>
@@ -93,6 +96,48 @@
       <a href="#succion" class="cmn-btn"><i class="fas fa-filter me-1"></i>Succión</a>
       <a href="#camillas" class="cmn-btn"><i class="fas fa-procedures me-1"></i>Camillas</a>
     </nav>
+
+
+    <!-- ── FILTROS ── -->
+     <section id="filtros" class="cat-section">
+      <div class="cat-section-header">
+        <div class="csh-icon"><i class="fas fa-filter"></i></div>
+        <div>
+          <h2 class="cat-section-title">Filtros para Gases Medicinales</h2>
+          <p class="cat-section-sub">Protección avanzada para sistemas de gases medicinales</p>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-6">
+          <div class="prod-mini-card">
+            <div class="pmc-img"><img src="assets/img/Imagen1-540x550.jpg" alt="Filtro de Línea para Gases Medicinales"/></div>
+            <div class="pmc-body">
+              <span class="pmc-cat">Filtros</span>
+              <h4 class="pmc-title">Filtro de Línea para Gases Medicinales</h4>
+              <p class="pmc-desc">Filtro de línea grado médico para protección de sistemas de gases medicinales contra partículas, bacterias y humedad.</p>
+              <a href="index.html#contacto" class="pmc-link">Cotizar <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-6">
+          <div class="prod-mini-card">
+            <div class="pmc-img"><img src="assets/img/Imagen2.jpg" alt="Filtro de Línea con Secador Integrado"/></div>
+            <div class="pmc-body">
+              <span class="pmc-cat">Filtros</span>
+              <h4 class="pmc-title">Filtro de Línea con Secador Integrado</h4>
+              <p class="pmc-desc">Filtro de línea con secador refrigerativo integrado para eliminación de humedad en sistemas de gases medicinales.</p>
+              <a href="index.html#contacto" class="pmc-link">
+                Cotizar <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+     </section>
+
+
 
     <!-- ── COMPRESORES ── -->
     <section id="compresores" class="cat-section">
