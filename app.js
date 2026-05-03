@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── Filtros de productos ───────────────────────
   const filterBtns = document.querySelectorAll('.pf-btn');
-  const prodItems  = document.querySelectorAll('.prod-item');
+  const prodItems = document.querySelectorAll('.prod-item');
 
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -96,17 +96,40 @@ document.addEventListener('DOMContentLoaded', () => {
   if (form) {
     form.addEventListener('submit', e => {
       e.preventDefault();
+
+      const checkbox = document.getElementById('aceptaPrivacidad');
+      if (!checkbox.checked) {
+        checkbox.classList.add('is-invalid');
+        checkbox.focus();
+        return;
+      }
+      checkbox.classList.remove('is-invalid');
+
       const btn = form.querySelector('button[type=submit]');
       const original = btn.innerHTML;
-      btn.innerHTML = '<i class="fas fa-check me-2"></i>¡Mensaje enviado!';
-      btn.style.background = '#16486e';
       btn.disabled = true;
-      setTimeout(() => {
-        btn.innerHTML = original;
-        btn.style.background = '';
-        btn.disabled = false;
-        form.reset();
-      }, 3500);
+      btn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Enviando...';
+
+      emailjs.sendForm('service_zrpmrb8', 'template_0garyxt', form)
+        .then(() => {
+          btn.innerHTML = '<i class="fas fa-check me-2"></i>¡Mensaje enviado!';
+          btn.style.background = '#16486e';
+          setTimeout(() => {
+            btn.innerHTML = original;
+            btn.style.background = '';
+            btn.disabled = false;
+            form.reset();
+          }, 3500);
+        })
+        .catch(() => {
+          btn.innerHTML = '<i class="fas fa-times me-2"></i>Error al enviar, completa correctamente los datos.';
+          btn.style.background = '#c0392b';
+          setTimeout(() => {
+            btn.innerHTML = original;
+            btn.style.background = '';
+            btn.disabled = false;
+          }, 3000);
+        });
     });
   }
 
@@ -135,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.isIntersecting) {
         const txt = e.target.textContent;
         if (txt.includes('+')) {
-          const n = parseInt(txt.replace(/\D/g,''));
+          const n = parseInt(txt.replace(/\D/g, ''));
           animateCount(e.target, n, '+');
         }
         statsObserver.unobserve(e.target);

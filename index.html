@@ -13,6 +13,9 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
   <link rel="icon" type="image/png" href="assets/img/LOGO-DISAH-AZÚL.png">
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>emailjs.init("TLTC4qLJnOVXzY1xO");</script>
 </head>
 
 <body>
@@ -423,8 +426,8 @@
                   <input type="text" name="nombre" class="cf-input" placeholder="Dr. Juan García" required />
                 </div>
                 <div class="col-sm-6">
-                  <label class="cf-label">Institución</label>
-                  <input type="text" name="institucion" class="cf-input" placeholder="Hospital / Clínica" />
+                  <label class="cf-label">Institución *</label>
+                  <input type="text" name="institucion" class="cf-input" placeholder="Hospital / Clínica" required />
                 </div>
                 <div class="col-sm-6">
                   <label class="cf-label">Teléfono *</label>
@@ -435,9 +438,9 @@
                   <input type="email" name="correo" class="cf-input" placeholder="correo@hospital.com" required />
                 </div>
                 <div class="col-12">
-                  <label class="cf-label">Producto de interés</label>
-                  <select name="producto" class="cf-input">
-                    <option value="">Seleccionar...</option>
+                  <label class="cf-label">Producto de interés *</label>
+                  <select name="producto" class="cf-input" required>
+                    <option value="" disabled selected>Seleccionar...</option>
                     <option>Compresor Libre de Aceite</option>
                     <option>Bomba de Vacío</option>
                     <option>Consolas Hospitalarias</option>
@@ -448,9 +451,18 @@
                   </select>
                 </div>
                 <div class="col-12">
-                  <label class="cf-label">Mensaje</label>
-                  <textarea name="mensaje" class="cf-input" rows="4"
-                    placeholder="Cuéntanos sobre tu proyecto..."></textarea>
+                  <label class="cf-label">Mensaje *</label>
+                  <textarea name="mensaje" class="cf-input" rows="4" placeholder="Cuéntanos sobre tu proyecto..."
+                    required></textarea>
+                </div>
+                <div class="col-12">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="aceptaPrivacidad" required />
+                    <label class="form-check-label" for="aceptaPrivacidad">
+                      He leído y acepto el
+                      <a href="aviso-privacidad.html" target="_blank">Aviso de Privacidad</a>
+                    </label>
+                  </div>
                 </div>
                 <div class="col-12">
                   <button type="submit" class="btn btn-primary-disah w-100 btn-lg">
@@ -506,6 +518,7 @@
       </div>
       <div class="footer-bottom">
         <span>© 2026 DISAH – Desarrolladora Internacional en Salud Hospitalaria SA de CV</span>
+        <span><a href="aviso-privacidad.html">Aviso de Privacidad</a></span>
         <span>Ruiz Cortines #306, Col. Industrias del Vidrio, San Nicolás de los Garza, N.L.</span>
       </div>
     </div>

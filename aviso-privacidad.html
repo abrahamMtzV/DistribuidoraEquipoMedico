@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aviso de Privacidad — DISAH</title>
+  <meta name="description" content="Aviso de privacidad del sitio web de Desarrolladora Internacional en Salud Hospitalaria, S.A. de C.V. (DISAH).">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Syne:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="assets/img/LOGO-DISAH-AZÚL.png">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ── Variables ── */
+    :root {
+      --navy:    #0a2a4a;
+      --steel:   #1c5b8e;
+      --steel-l: #e8f3fb;
+      --rule:    #c5ddef;
+      --text:    #1a1a1a;
+      --muted:   #4a5568;
+      --surface: #f5f8fb;
+      --border:  #dde6ef;
+      --white:   #ffffff;
+    }
+
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── Base ── */
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--text);
+      background: var(--white);
+    }
+
+    /* ── Header ── */
+    .site-header {
+      background: var(--navy);
+      padding: 1.25rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .site-header .logo-text {
+      font-family: 'Syne', sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: #ffffff;
+      letter-spacing: 0.04em;
+    }
+    .site-header .logo-sep {
+      width: 1px;
+      height: 24px;
+      background: rgba(255,255,255,0.25);
+    }
+    .site-header .header-sub {
+      font-size: 12px;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    /* ── Layout ── */
+    .page-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3rem 2rem 5rem;
+    }
+
+    /* ── Doc header ── */
+    .doc-intro {
+      border-left: 4px solid var(--steel);
+      padding-left: 1.25rem;
+      margin-bottom: 3rem;
+    }
+    .doc-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--steel-l);
+      color: var(--steel);
+      padding: 4px 10px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+    }
+    .doc-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.25;
+    }
+    .doc-meta {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    /* ── Sections ── */
+    .section { margin-bottom: 2.25rem; }
+    .section-num {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--steel);
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+    .section-body {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+    .section-body p + p { margin-top: 10px; }
+    .section-body strong { color: var(--text); font-weight: 500; }
+
+    hr.divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 2.25rem 0;
+    }
+
+    /* ── Data tags grid ── */
+    .data-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .data-tag {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 9px 12px;
+      font-size: 13px;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--steel);
+      flex-shrink: 0;
+    }
+
+    /* ── Derechos ARCO ── */
+    .rights-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .right-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+    }
+    .right-letter {
+      font-family: 'Syne', sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--steel);
+    }
+    .right-label {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 3px;
+      line-height: 1.4;
+    }
+
+    /* ── Contact box ── */
+    .contact-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      margin-top: 14px;
+    }
+    .contact-row {
+      display: flex;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--muted);
+      padding: 5px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .contact-row:last-child { border-bottom: none; }
+    .contact-label {
+      font-weight: 500;
+      color: var(--text);
+      min-width: 100px;
+      flex-shrink: 0;
+    }
+
+    /* ── Footer del doc ── */
+    .doc-footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: #8a9ab0;
+      line-height: 1.7;
+    }
+
+    /* ── Botón volver ── */
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--steel);
+      text-decoration: none;
+      margin-bottom: 2rem;
+      transition: opacity .2s;
+    }
+    .btn-back:hover { opacity: 0.7; }
+
+    /* ── Responsive ── */
+    @media (max-width: 520px) {
+      .data-grid  { grid-template-columns: 1fr; }
+      .rights-grid { grid-template-columns: 1fr 1fr; }
+      .page-wrap { padding: 2rem 1.25rem 4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+    <div class="page-wrap">
+      <a href="index.html" class="btn-back">
+        ← Regresar al sitio
+      </a>
+
+      <!-- Encabezado del documento -->
+      <div class="doc-intro">
+        <span class="doc-badge">Aviso de privacidad</span>
+        <h1 class="doc-title">Aviso de Privacidad</h1>
+        <p class="doc-meta">
+          Desarrolladora Internacional en Salud Hospitalaria, S.A. de C.V. (DISAH)
+          
+        </p>
+      </div>
+
+      <!-- 01 -->
+      <div class="section">
+        <p class="section-num">01 — Responsable</p>
+        <h2 class="section-title">¿Quién es el responsable de sus datos?</h2>
+        <div class="section-body">
+          <p><strong>Desarrolladora Internacional en Salud Hospitalaria, S.A. de C.V. (DISAH)</strong> es responsable del tratamiento de los datos personales que usted nos proporcione a través del formulario de contacto de este sitio web, de conformidad con la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP) y su Reglamento.</p>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <!-- 02 -->
+      <div class="section">
+        <p class="section-num">02 — Datos recabados</p>
+        <h2 class="section-title">¿Qué datos personales obtenemos?</h2>
+        <div class="section-body">
+          <p>A través del formulario de contacto, recabamos únicamente los siguientes datos:</p>
+        </div>
+        <div class="data-grid">
+          <div class="data-tag"><span class="dot"></span> Nombre completo</div>
+          <div class="data-tag"><span class="dot"></span> Correo electrónico</div>
+          <div class="data-tag"><span class="dot"></span> Número de teléfono</div>
+          <div class="data-tag"><span class="dot"></span> Empresa u organización</div>
+          <div class="data-tag"><span class="dot"></span> Mensaje o consulta</div>
+          <div class="data-tag"><span class="dot"></span> País o ciudad (opcional)</div>
+        </div>
+        <p class="section-body" style="margin-top:12px;">No recabamos datos personales sensibles a través de este formulario.</p>
+      </div>
+
+      <hr class="divider">
+
+      <!-- 03 -->
+      <div class="section">
+        <p class="section-num">03 — Finalidades</p>
+        <h2 class="section-title">¿Para qué usamos sus datos?</h2>
+        <div class="section-body">
+          <p><strong>Finalidades primarias (necesarias):</strong> Atender su solicitud de contacto, cotización o información sobre nuestros productos y servicios: compresores de aire grado médico, bombas de vacío DISAH, equipos de succión desechables, redes de gases medicinales y equipos para oxígeno y aire de las marcas INFRA-Finesa, ArameD y Mindray.</p>
+          <p><strong>Finalidades secundarias (opcionales):</strong> Envío de información comercial, novedades de productos y promociones de DISAH. Usted puede oponerse a estas finalidades en cualquier momento sin que ello afecte la atención de su solicitud principal.</p>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <!-- 04 -->
+      <div class="section">
+        <p class="section-num">04 — Transferencias</p>
+        <h2 class="section-title">¿Compartimos sus datos con terceros?</h2>
+        <div class="section-body">
+          <p>Sus datos no serán transferidos a terceros sin su consentimiento, salvo en los casos previstos en el Artículo 37 de la LFPDPPP (obligación legal, autoridad competente u orden judicial). DISAH no vende ni comercializa su información personal.</p>
+          <p>El envío del formulario es procesado a través de un servicio de correo electrónico externo que actúa como encargado técnico del tratamiento bajo estrictas medidas de confidencialidad.</p>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <!-- 05 -->
+      <div class="section">
+        <p class="section-num">05 — Derechos ARCO</p>
+        <h2 class="section-title">Sus derechos sobre sus datos personales</h2>
+        <div class="section-body">
+          <p>Usted tiene derecho a ejercer en cualquier momento los siguientes derechos:</p>
+        </div>
+        <div class="rights-grid">
+          <div class="right-card">
+            <div class="right-letter">A</div>
+            <div class="right-label">Acceso a sus datos personales</div>
+          </div>
+          <div class="right-card">
+            <div class="right-letter">R</div>
+            <div class="right-label">Rectificación de datos inexactos</div>
+          </div>
+          <div class="right-card">
+            <div class="right-letter">C</div>
+            <div class="right-label">Cancelación de sus datos</div>
+          </div>
+          <div class="right-card">
+            <div class="right-letter">O</div>
+            <div class="right-label">Oposición al tratamiento</div>
+          </div>
+          <div class="right-card">
+            <div class="right-letter">P</div>
+            <div class="right-label">Portabilidad de sus datos</div>
+          </div>
+          <div class="right-card">
+            <div class="right-letter">L</div>
+            <div class="right-label">Limitación del uso o divulgación</div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <!-- 06 -->
+      <div class="section">
+        <p class="section-num">06 — Contacto del responsable</p>
+        <h2 class="section-title">¿Cómo ejercer sus derechos o revocar su consentimiento?</h2>
+        <div class="section-body">
+          <p>Envíe su solicitud al área responsable de datos personales de DISAH:</p>
+        </div>
+        <div class="contact-box">
+          <div class="contact-row">
+            <span class="contact-label">Empresa</span>
+            <span>Desarrolladora Internacional en Salud Hospitalaria, S.A. de C.V.</span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-label">Correo</span>
+            <!-- [COMPLETAR] correo oficial de DISAH -->
+            <span>[correo@disah.com.mx]</span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-label">Teléfono</span>
+            <!-- [COMPLETAR] número de contacto DISAH -->
+            <span>[número de contacto]</span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-label">Domicilio</span>
+            <!-- [COMPLETAR] dirección fiscal o comercial completa -->
+            <span>[dirección fiscal o comercial completa]</span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-label">Horario</span>
+            <span>Lunes a viernes, 9:00 a 18:00 hrs.</span>
+          </div>
+        </div>
+        <p class="section-body" style="margin-top:12px;">Su solicitud será atendida en un plazo máximo de 20 días hábiles conforme a la LFPDPPP.</p>
+      </div>
+
+      <hr class="divider">
+
+      <!-- 07 -->
+      <div class="section">
+        <p class="section-num">07 — Conservación</p>
+        <h2 class="section-title">¿Por cuánto tiempo conservamos sus datos?</h2>
+        <div class="section-body">
+          <p>Sus datos serán conservados únicamente durante el tiempo necesario para cumplir con las finalidades descritas, o hasta que usted ejerza su derecho de cancelación u oposición, lo que ocurra primero.</p>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <!-- 08 -->
+      <div class="section">
+        <p class="section-num">08 — Cambios al aviso</p>
+        <h2 class="section-title">Actualizaciones a este aviso</h2>
+        <div class="section-body">
+          <p>Cualquier modificación a este aviso de privacidad será notificada en esta misma página. Le recomendamos revisarlo periódicamente. El uso continuado del formulario de contacto después de publicadas las modificaciones constituirá su aceptación de las mismas.</p>
+        </div>
+      </div>
+
+      <!-- Pie del documento -->
+      <div class="doc-footer">
+        Fecha de última actualización: mayo de 2026 &nbsp;·&nbsp;
+        Este aviso cumple con lo establecido en la Ley Federal de Protección de Datos Personales en Posesión de los Particulares, su Reglamento y los Lineamientos del Aviso de Privacidad publicados por el INAI.
+      </div>
+
+    </div><!-- /page-wrap -->
+  </main>
+
+
+</body>
+</html>
