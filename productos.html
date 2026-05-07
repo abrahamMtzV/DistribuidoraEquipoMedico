@@ -1,743 +1,548 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Productos – DISAH Equipos Médicos</title>
-  <link rel="stylesheet" href="styles.css"/>
-  <link rel="stylesheet" href="productos.css"/>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="productos.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
   <link rel="icon" href="assets/img/LOGO-DISAH-AZÚL.png">
 </head>
+
+
+<!-- Modal lightbox -->
+<div id="lightboxModal"
+  style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.85); z-index:9999; align-items:center; justify-content:center; cursor:zoom-out;">
+  <img id="lightboxImg" src="" style="max-width:90vw; max-height:90vh; border-radius:8px; object-fit:contain;">
+</div>
+
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg fixed-top scrolled" id="mainNav">
-  <div class="container-xl">
-    <a class="navbar-brand" href="index.html">
-      <img src="assets/img/LOGO-DISAH-AZÚL.png" alt="DISAH" class="nav-logo"/>
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-      <span class="toggler-icon"><i class="fas fa-bars"></i></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navMenu">
-      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
-        <li class="nav-item"><a class="nav-link" href="index.html#quienes-somos">Quiénes Somos</a></li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">Productos</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#compresores">Compresores y Bombas de Vacío</a></li>
-            <li><a class="dropdown-item" href="#consolas">Consolas</a></li>
-            <li><a class="dropdown-item" href="#cortinas">Cortinas Antibacterianas</a></li>
-          </ul>
-        </li>
-        <li class="nav-item"><a class="nav-link" href="index.html#clientes">Clientes</a></li>
-        <li class="nav-item"><a class="nav-link btn-contacto" href="index.html#contacto">Contacto</a></li>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg fixed-top scrolled" id="mainNav">
+    <div class="container-xl">
+      <a class="navbar-brand" href="index.html">
+        <img src="assets/img/LOGO-DISAH-AZÚL.png" alt="DISAH" class="nav-logo" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="toggler-icon"><i class="fas fa-bars"></i></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+          <li class="nav-item"><a class="nav-link" href="index.html#quienes-somos">Quiénes Somos</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">Productos</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="productos.html#compresores">Compresores y Bombas de Vacío</a></li>
+              <li><a class="dropdown-item" href="productos.html#lubricantes">Lubricantes</a></li>
+              <li><a class="dropdown-item" href="productos.html#filtros">Filtros de aceite y aire</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="index.html#clientes">Clientes</a></li>
+          <li class="nav-item"><a class="nav-link btn-contacto" href="index.html#contacto">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-overlay"></div>
+    <div class="container-xl page-hero-content">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"> <a href="index.html" style="font-size: 12pt;">Inicio</a> </li>
+          <li class="breadcrumb-item active text-white">Productos</li>
+        </ol>
+      </nav>
+      <h1 class="page-hero-title">Catálogo de Productos</h1>
+      <p class="page-hero-sub">Equipos médicos especializados para instituciones de salud</p>
+    </div>
+  </div>
+
+  <!-- SIDEBAR + CONTENT -->
+  <div class="catalog-layout container-xl">
+
+    <!-- Sidebar filtros -->
+    <aside class="catalog-sidebar">
+      <h6 class="sidebar-heading">Categorías</h6>
+      <ul class="sidebar-nav">
+        <li><a href="#compresores" class="sn-link active"><i class="fas fa-wind"></i> Compresores y vacío</a></li>
+        <li><a href="#lubricantes" class="sn-link"><i class="fas fa-water"></i> Lubricantes</a></li>
+        <li><a href="#filtros" class="sn-link"><i class="fas fa-wind"></i> Filtros de aire y aceite</a></li>
+        <li><a href="#cortinas" class="sn-link"><i class="fas fa-border-all"></i> Cortinas Antibacterianas</a></li>
+        <li><a href="#instalaciones" class="sn-link"><i class="fas fa-arrow-up"></i> Instalaciones</a></li>
       </ul>
-    </div>
-  </div>
-</nav>
-
-<!-- PAGE HERO -->
-<div class="page-hero">
-  <div class="page-hero-overlay"></div>
-  <div class="container-xl page-hero-content">
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item">    <a href="index.html" style="font-size: 12pt;">Inicio</a>      </li>
-        <li class="breadcrumb-item active text-white">Productos</li>
-      </ol>
-    </nav>
-    <h1 class="page-hero-title">Catálogo de Productos</h1>
-    <p class="page-hero-sub">Equipos médicos especializados para instituciones de salud</p>
-  </div>
-</div>
-
-<!-- SIDEBAR + CONTENT -->
-<div class="catalog-layout container-xl">
-
-  <!-- Sidebar filtros -->
-  <aside class="catalog-sidebar">
-    <h6 class="sidebar-heading">Categorías</h6>
-    <ul class="sidebar-nav">
-      <li><a href="#compresores" class="sn-link active"><i class="fas fa-wind"></i> Compresores y Vacío</a></li>
-      <li><a href="#filtros" class="sn-link"><i class="fas fa-wind"></i> Filtros</a></li>
-      <li><a href="#consolas" class="sn-link"><i class="fas fa-th-large"></i> Consolas</a></li>
-      <li><a href="#cortinas" class="sn-link"><i class="fas fa-border-all"></i> Cortinas Antibacterianas</a></li>
-      <li><a href="#oxigeno" class="sn-link"><i class="fas fa-lungs"></i> Oxígeno & Gases</a></li>
-      <li><a href="#monitores" class="sn-link"><i class="fas fa-heartbeat"></i> Monitores & Diagnóstico</a></li>
-      <li><a href="#succion" class="sn-link"><i class="fas fa-filter"></i> Succión & Recolección</a></li>
-      <li><a href="#camillas" class="sn-link"><i class="fas fa-procedures"></i> Camillas & Movilidad</a></li>
-    </ul>
-    <div class="sidebar-cta">
-      <p>¿Necesitas asesoría?</p>
-      <a href="https://wa.me/528113606580" class="btn btn-primary-disah w-100" target="_blank">
-        <i class="fab fa-whatsapp me-2 text-white"></i><span class="text-white">WhatsApp</span>
-      </a>
-      <a href="tel:8113606580" class="btn-call mt-2">
-        <i class="fas fa-phone me-1"></i>811 360 6580
-      </a>
-    </div>
-  </aside>
-
-  <!-- Main content -->
-  <main class="catalog-main">
-
-    <!-- Navegación móvil de categorías (oculta en desktop, visible en tablet/móvil) -->
-    <nav class="catalog-mobile-nav d-none">
-      <a href="#filtros" class="cmn-btn"><i class="fas fa-wind me-1"></i>Filtros</a>
-      <a href="#compresores" class="cmn-btn"><i class="fas fa-wind me-1"></i>Compresores y Vacío</a>
-      <a href="#consolas" class="cmn-btn"><i class="fas fa-th-large me-1"></i>Consolas</a>
-      <a href="#cortinas" class="cmn-btn"><i class="fas fa-border-all me-1"></i>Cortinas</a>
-      <a href="#oxigeno" class="cmn-btn"><i class="fas fa-lungs me-1"></i>Oxígeno & Gases</a>
-      <a href="#monitores" class="cmn-btn"><i class="fas fa-heartbeat me-1"></i>Monitores</a>
-      <a href="#succion" class="cmn-btn"><i class="fas fa-filter me-1"></i>Succión</a>
-      <a href="#camillas" class="cmn-btn"><i class="fas fa-procedures me-1"></i>Camillas</a>
-    </nav>
-
-
-    <!-- ── COMPRESORES  ── -->
-     <section id="compresores" class="cat-section">
-      <div class="cat-section-header">
-        <div class="csh-icon"><i class="fas fa-wind"></i></div>
-        <div>
-          <h2 class="cat-section-title">Compresores de grado médico</h2>
-          <p class="cat-section-sub">Sistemas digitales inteligentes SCROLL</p>
-        </div>
+      <div class="sidebar-cta">
+        <p>¿Necesitas asesoría?</p>
+        <a href="https://wa.me/528124667682" class="btn btn-primary-disah w-100" target="_blank">
+          <i class="fab fa-whatsapp me-2 text-white"></i><span class="text-white">WhatsApp</span>
+        </a>
+        <a href="tel:8113606580" class="btn-call mt-2">
+          <i class="fas fa-phone me-1"></i>811 360 6580
+        </a>
       </div>
+    </aside>
 
-      <div class="row g-4">
-        <div class="col-md-6 col-lg-6">
-          <div class="prod-mini-card">
-            <div class="pmc-img"><img src="" alt="Filtro de Línea para Gases Medicinales"/></div>
-            <div class="pmc-body">
-              <span class="pmc-cat">Filtros</span>
-              <h4 class="pmc-title">Filtro de Línea para Gases Medicinales</h4>
-              <p class="pmc-desc">Filtro de línea grado médico para protección de sistemas de gases medicinales contra partículas, bacterias y humedad.</p>
-              <a href="index.html#contacto" class="pmc-link">Cotizar <i class="fas fa-arrow-right"></i></a>
-            </div>
+    <!-- Main content -->
+    <main class="catalog-main">
+
+      <!-- Navegación móvil de categorías (oculta en desktop, visible en tablet/móvil) -->
+      <nav class="catalog-mobile-nav d-none">
+        <a href="#compresores" class="sn-link active"><i class="fas fa-wind"></i> Compresores y vacío</a>
+        <a href="#lubricantes" class="sn-link"><i class="fas fa-water"></i> Lubricantes</a>
+        <a href="#filtros" class="sn-link"><i class="fas fa-filter"></i> Filtros de aire y aceite</a>
+        <a href="#cortinas" class="sn-link"><i class="fas fa-border-all"></i> Cortinas Antibacterianas</a>
+        <a href="#instalaciones" class="sn-link"><i class="fas fa-arrow-up"></i> Instalaciones</a>
+      </nav>
+
+      <!-- ── COMPRESORES ── -->
+
+      <section id="compresores" class="cat-section">
+        <div class="cat-section-header">
+          <div class="csh-icon"><i class="fas fa-wind"></i></div>
+          <div>
+            <h2 class="cat-section-title">Compresores de grado médico</h2>
+            <p class="cat-section-sub">Tecnología de punta para redes de gases medicinales</p>
           </div>
         </div>
 
-        <div class="col-md-6 col-lg-6">
-          <div class="prod-mini-card">
-            <div class="pmc-img"><img src="assets/img/Imagen2.jpg" alt="Filtro de Línea con Secador Integrado"/></div>
-            <div class="pmc-body">
-              <span class="pmc-cat">Filtros</span>
-              <h4 class="pmc-title">Filtro de Línea con Secador Integrado</h4>
-              <p class="pmc-desc">Filtro de línea con secador refrigerativo integrado para eliminación de humedad en sistemas de gases medicinales.</p>
-              <a href="index.html#contacto" class="pmc-link">
-                Cotizar <i class="fas fa-arrow-right"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-     </section>
 
 
+        <div class="row g-4">
 
-    <!-- ── COMPRESORES ── -->
-    <section id="compresores" class="cat-section">
-      <div class="cat-section-header">
-        <div class="csh-icon"><i class="fas fa-wind"></i></div>
-        <div>
-          <h2 class="cat-section-title">Compresores y Bombas de Vacío</h2>
-          <p class="cat-section-sub">Tecnología de punta para redes de gases medicinales</p>
-        </div>
-      </div>
-
-      <div class="row g-4">
-
-        <!-- Compresor Libre de Aceite -->
-        <div class="col-md-6" id="compresor-libre-aceite">
-          <div class="prod-detail-card">
-            <div class="pdc-img">
-              <img src="assets/img/AIRMATIC1000.jpg" alt="Compresor Libre de Aceite"/>
-              <span class="pdc-badge">Grado Médico</span>
-            </div>
-            <div class="pdc-body">
-              <span class="pdc-cat">Compresores y Vacío</span>
-              <h3 class="pdc-title">Compresor Libre de Aceite<br/><small>AIRMATIC 1000 – AM-1000</small></h3>
-              <p class="pdc-desc">Sistema SCROLL de última generación con 0% de impurezas en el aire. Trabaja en línea dual con 2 motores que impulsan 2 unidades SCROLL. Cumple NFPA y normativa grado médico.</p>
-              <div class="pdc-specs">
-                <div class="spec-item"><span class="spec-label">Potencia</span><span class="spec-val">10 HP (7.5 kW)</span></div>
-                <div class="spec-item"><span class="spec-label">Entrega de aire</span><span class="spec-val">28 CFM</span></div>
-                <div class="spec-item"><span class="spec-label">Voltaje</span><span class="spec-val">220V / 60 Hz</span></div>
-                <div class="spec-item"><span class="spec-label">Fases</span><span class="spec-val">Trifásico</span></div>
-                <div class="spec-item"><span class="spec-label">Presión</span><span class="spec-val">145 PSI</span></div>
-                <div class="spec-item"><span class="spec-label">Temperatura</span><span class="spec-val">-5°C a 45°C</span></div>
+          <!-- Compresor Libre de Aceite -->
+          <div class="col-md-6" id="compresor-libre-aceite">
+            <div class="prod-detail-card">
+              <div class="pdc-img">
+                <img src="assets/img/AIRMATIC1000.jpeg" alt="Compresor Libre de Aceite" />
+                <span class="pdc-badge">Grado Médico</span>
               </div>
-              <ul class="pdc-features">
-                <li>2 Motores 5 HP con poleas y bandas</li>
-                <li>Tanque de 500 litros + filtros de línea</li>
-                <li>Secador refrigerativo integrado</li>
-                <li>Controlador MAM-6090, pantalla 7"</li>
-                <li>Cabina silenciada con material supresor de ruido</li>
-              </ul>
-              <a href="index.html#contacto" class="btn btn-primary-disah">Solicitar cotización</a>
+              <div class="pdc-body">
+                <span class="pdc-cat">Compresores y Vacío</span>
+                <h3 class="pdc-title">Compresor Libre de Aceite<br /><small>AIRMATIC 1000 – AM-1000</small></h3>
+                <p class="pdc-desc">Sistema SCROLL de última generación con 0% de impurezas en el aire. Trabaja en línea
+                  dual con 2 motores que impulsan 2 unidades SCROLL. Cumple NFPA y normativa grado médico.</p>
+                <div class="pdc-specs">
+                  <div class="spec-item"><span class="spec-label">Potencia</span><span class="spec-val">10 HP (7.5
+                      kW)</span></div>
+                  <div class="spec-item"><span class="spec-label">Entrega de aire</span><span class="spec-val">28
+                      CFM</span></div>
+                  <div class="spec-item"><span class="spec-label">Voltaje</span><span class="spec-val">220V / 60
+                      Hz</span></div>
+                  <div class="spec-item"><span class="spec-label">Fases</span><span class="spec-val">Trifásico</span>
+                  </div>
+                  <div class="spec-item"><span class="spec-label">Presión</span><span class="spec-val">145 PSI</span>
+                  </div>
+                  <div class="spec-item"><span class="spec-label">Temperatura</span><span class="spec-val">-5°C a
+                      45°C</span></div>
+                </div>
+                <ul class="pdc-features">
+                  <li>2 Motores 5 HP con poleas y bandas</li>
+                  <li>Tanque de 500 litros + filtros de línea</li>
+                  <li>Secador refrigerativo integrado</li>
+                  <li>Controlador MAM-6090, pantalla 7"</li>
+                  <li>Cabina silenciada con material supresor de ruido</li>
+                </ul>
+                <a href="index.html#contacto" class="btn btn-primary-disah">Solicitar cotización</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bomba de Vacío -->
+          <div class="col-md-6" id="bomba-vacio">
+            <div class="prod-detail-card">
+              <div class="pdc-img">
+                <img src="assets/img/modelo1_1.jpeg" alt="Bomba de Vacío" />
+                <span class="pdc-badge">Tri-Tech Medical</span>
+              </div>
+              <div class="pdc-body">
+                <span class="pdc-cat">Compresores y Vacío</span>
+                <h3 class="pdc-title">Sistema de Bomba de Vacío</h3>
+                <p class="pdc-desc">Sistema de vacío médico con control VFD y PLC integrado. Configuración duplex para
+                  operación continua sin interrupciones. Certificado para entornos hospitalarios.</p>
+                <ul class="pdc-features">
+                  <li>Control VFD con pantalla SIEMENS</li>
+                  <li>Configuración Pump 1 + Pump 2 en alternancia</li>
+                  <li>Tanque receptor de vacío incluido</li>
+                  <li>Sistema de alarmas y monitoreo</li>
+                  <li>Mantenimiento predictivo integrado</li>
+                </ul>
+                <a href="index.html#contacto" class="btn btn-primary-disah">Solicitar cotización</a>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </section>
+
+      <!-- ── Lubricantes ── -->
+      <section id="lubricantes" class="cat-section">
+        <div class="cat-section-header">
+          <div class="csh-icon"><i class="fas fa-oil-can"></i></div>
+          <div>
+            <h2 class="cat-section-title">Lubricantes Premium</h2>
+            <p class="cat-section-sub">Productos de alta calidad para el mantenimiento de equipos médicos</p>
+          </div>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="prod-detail-card">
+              <div class="pdc-img">
+                <img src="assets/img/lubricantespremium1.jpeg" alt="Lubricantes Premium" />
+              </div>
+              <div class="pdc-body">
+                <span class="pdc-cat">Lubricantes</span>
+                <h3 class="pdc-title">Lubricante para Compresores</h3>
+                <p class="pdc-desc">Lubricante de alta calidad para compresores de aire medical, con propiedades de
+                  resistencia al desgaste y lubricación óptima.
+                  Incluyen tomas de oxígeno, aire médico y vacío según norma.</p>
+                <ul class="pdc-features">
+                  <li>Compresor sintético ISO 32</li>
+                </ul>
+                <a href="index.html#contacto" class="btn btn-primary-disah">Solicitar cotización</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="prod-detail-card">
+              <div class="pdc-img">
+                <img src="assets/img/lubricantepremium2.jpeg" alt="Lubricantes Premium" />
+              </div>
+              <div class="pdc-body">
+                <span class="pdc-cat">Lubricantes</span>
+                <h3 class="pdc-title">Lubricante PS-150</h3>
+                <p class="pdc-desc">Lubricante especializado para motores eléctricos en equipos médicos, con propiedades
+                  de resistencia al desgaste y lubricación óptima.</p>
+                <a href="index.html#contacto" class="btn btn-primary-disah">Solicitar cotización</a>
+              </div>
             </div>
           </div>
         </div>
+      </section>
 
-        <!-- Bomba de Vacío -->
-        <div class="col-md-6" id="bomba-vacio">
-          <div class="prod-detail-card">
-            <div class="pdc-img">
-              <img src="assets/img/Imagen1-540x550.jpg" alt="Bomba de Vacío"/>
-              <span class="pdc-badge">Tri-Tech Medical</span>
+
+      <!-- ── FILTROS ── -->
+      <section id="filtros" class="cat-section">
+        <div class="cat-section-header">
+          <div class="csh-icon"><i class="fas fa-filter"></i></div>
+          <div>
+            <h2 class="cat-section-title">Filtros para Equipos Médicos</h2>
+            <p class="cat-section-sub">Control de infecciones intrahospitalarias</p>
+          </div>
+        </div>
+        <div class="row g-4">
+
+          <!-- Modelo 1 -->
+          <div class="col-md-4">
+            <div class="prod-detail-card">
+              <div id="carouselFiltro1" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="assets/img/filtro1_1.jpeg" class="d-block w-100" alt="Filtro modelo 1"
+                      style="aspect-ratio:4/3; object-fit:cover;">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="assets/img/filtro1_2.jpeg" class="d-block w-100" alt="Filtro modelo 1"
+                      style="aspect-ratio:4/3; object-fit:cover;">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="assets/img/filtro1_3.jpeg" class="d-block w-100" alt="Filtro modelo 1"
+                      style="aspect-ratio:4/3; object-fit:cover;">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselFiltro1"
+                  data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselFiltro1"
+                  data-bs-slide="next">
+                  <span class="carousel-control-next-icon"></span>
+                </button>
+              </div>
+              <div class="pdc-body">
+                <span class="pdc-cat">Filtros</span>
+                <h3 class="pdc-title">Filtro Modelo A</h3>
+                <p class="pdc-desc">Descripción del filtro modelo A.</p>
+                <a href="index.html#contacto" class="btn btn-primary-disah mt-auto">Solicitar cotización</a>
+              </div>
             </div>
-            <div class="pdc-body">
-              <span class="pdc-cat">Compresores y Vacío</span>
-              <h3 class="pdc-title">Sistema de Bomba de Vacío</h3>
-              <p class="pdc-desc">Sistema de vacío médico con control VFD y PLC integrado. Configuración duplex para operación continua sin interrupciones. Certificado para entornos hospitalarios.</p>
-              <ul class="pdc-features">
-                <li>Control VFD con pantalla SIEMENS</li>
-                <li>Configuración Pump 1 + Pump 2 en alternancia</li>
-                <li>Tanque receptor de vacío incluido</li>
-                <li>Sistema de alarmas y monitoreo</li>
-                <li>Mantenimiento predictivo integrado</li>
-              </ul>
-              <a href="index.html#contacto" class="btn btn-primary-disah">Solicitar cotización</a>
+          </div>
+
+          <!-- Modelo 2 -->
+          <div class="col-md-4">
+            <div class="prod-detail-card">
+              <div id="carouselFiltro2" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="assets/img/filtro2_1.jpeg" class="d-block w-100" alt="Filtro modelo 2"
+                      style="aspect-ratio:4/3; object-fit:cover;">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="assets/img/filtro2_2.jpeg" class="d-block w-100" alt="Filtro modelo 2"
+                      style="aspect-ratio:4/3; object-fit:cover;">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="assets/img/filtro2_3.jpeg" class="d-block w-100" alt="Filtro modelo 2"
+                      style="aspect-ratio:4/3; object-fit:cover;">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselFiltro2"
+                  data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselFiltro2"
+                  data-bs-slide="next">
+                  <span class="carousel-control-next-icon"></span>
+                </button>
+              </div>
+              <div class="pdc-body">
+                <span class="pdc-cat">Filtros</span>
+                <h3 class="pdc-title">Filtro Modelo B</h3>
+                <p class="pdc-desc">Descripción del filtro modelo B.</p>
+                <a href="index.html#contacto" class="btn btn-primary-disah mt-auto">Solicitar cotización</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modelo 3 -->
+          <div class="col-md-4">
+            <div class="prod-detail-card">
+              <div id="carouselFiltro3" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="assets/img/filtro3_1.jpeg" class="d-block w-100" alt="Filtro modelo 3"
+                      style="aspect-ratio:4/3; object-fit:cover;">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="assets/img/filtro3_2.jpeg" class="d-block w-100" alt="Filtro modelo 3"
+                      style="aspect-ratio:4/3; object-fit:cover;">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="assets/img/filtro3_3.jpeg" class="d-block w-100" alt="Filtro modelo 3"
+                      style="aspect-ratio:4/3; object-fit:cover;">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselFiltro3"
+                  data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselFiltro3"
+                  data-bs-slide="next">
+                  <span class="carousel-control-next-icon"></span>
+                </button>
+              </div>
+              <div class="pdc-body">
+                <span class="pdc-cat">Filtros</span>
+                <h3 class="pdc-title">Filtro Modelo C</h3>
+                <p class="pdc-desc">Descripción del filtro modelo C.</p>
+                <a href="index.html#contacto" class="btn btn-primary-disah mt-auto">Solicitar cotización</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+
+
+      <!-- ── CORTINAS ── -->
+      <section id="cortinas" class="cat-section">
+        <div class="cat-section-header">
+          <div class="csh-icon"><i class="fas fa-border-all"></i></div>
+          <div>
+            <h2 class="cat-section-title">Cortinas Antibacterianas</h2>
+            <p class="cat-section-sub">Control de infecciones intrahospitalarias</p>
+          </div>
+        </div>
+        <div class="row g-4">
+          <div class="col-12">
+            <div class="prod-detail-card prod-detail-card--horiz">
+              <div class="pdc-img">
+                <img src="assets/img/equipo-re-manifacturado-camillas-1.jpg" alt="Cortinas Antibacterianas" />
+              </div>
+              <div class="pdc-body">
+                <span class="pdc-cat">Cortinas Antibacterianas</span>
+                <h3 class="pdc-title">Cortinas Antibacterianas para Hospitales</h3>
+                <p class="pdc-desc">Divisiones de espacios con propiedades antibacterianas certificadas para uso en
+                  hospitales, clínicas y áreas de alta sensibilidad sanitaria. Reducen la propagación de microorganismos
+                  y facilitan la limpieza y desinfección.</p>
+                <ul class="pdc-features">
+                  <li>Tratamiento antibacteriano certificado</li>
+                  <li>Material resistente a desinfectantes hospitalarios</li>
+                  <li>Disponible en múltiples colores y tamaños</li>
+                  <li>Sistema de rieles y ganchos incluido</li>
+                  <li>Cumple normativa de control de infecciones</li>
+                </ul>
+                <a href="index.html#contacto" class="btn btn-primary-disah">Solicitar cotización</a>
+              </div>
             </div>
           </div>
         </div>
+      </section>
 
-        <!-- Bomba Presión Negativa -->
-        <div class="col-md-6" id="bomba-presion-negativa">
-          <div class="prod-detail-card">
-            <div class="pdc-img">
-              <img src="assets/img/Imagen2.jpg" alt="Bomba de Terapia Presión Negativa"/>
-            </div>
-            <div class="pdc-body">
-              <span class="pdc-cat">Compresores y Vacío</span>
-              <h3 class="pdc-title">Bomba de Terapia Presión Negativa</h3>
-              <p class="pdc-desc">Sistema de terapia de presión negativa (VAC) para manejo avanzado de heridas agudas y crónicas. Control preciso de la presión y alarmas audibles y visuales.</p>
-              <ul class="pdc-features">
-                <li>Rango de presión ajustable</li>
-                <li>Alarmas audibles y visuales</li>
-                <li>Operación continua e intermitente</li>
-                <li>Display digital de presión</li>
-              </ul>
-              <a href="index.html#contacto" class="btn btn-primary-disah">Solicitar cotización</a>
-            </div>
+
+      <!-- ── INSTALACIONES ── -->
+      <section id="instalaciones" class="cat-section">
+        <div class="cat-section-header">
+          <div class="csh-icon"><i class="fas fa-area-chart"></i></div>
+          <div>
+            <h2 class="cat-section-title">Instalaciones</h2>
+            <p class="cat-section-sub">Evidencia de instalación y servicio</p>
           </div>
         </div>
 
-        <!-- Trombas de Aire -->
-        <div class="col-md-6">
-          <div class="prod-detail-card">
-            <div class="pdc-img">
-              <img src="assets/img/Imagen5-540x550.jpg" alt="Trombas de Aire"/>
+        <div class="row g-4">
+
+          <div class="col-md-4">
+            <div class="prod-detail-card">
+              <div class="pdc-img" >
+                <img src="assets/img/evidencia1.jpeg" alt="Lubricantes Premium"/>
+              </div>
             </div>
-            <div class="pdc-body">
-              <span class="pdc-cat">Compresores y Vacío</span>
-              <h3 class="pdc-title">Trombas de Aire M-AIR</h3>
-              <p class="pdc-desc">Sistemas de aire médico compactos de la línea M-AIR de Tri-Tech Medical. Ideal para instalaciones donde el espacio es limitado y se requiere alta confiabilidad.</p>
-              <ul class="pdc-features">
-                <li>Diseño compacto tipo rack</li>
-                <li>Múltiples cabezas de compresor</li>
-                <li>Panel de control integrado</li>
-                <li>Tanque receptor vertical incluido</li>
-              </ul>
-              <a href="index.html#contacto" class="btn btn-primary-disah">Solicitar cotización</a>
+          </div>
+
+          <div class="col-md-4">
+            <div class="prod-detail-card">
+              <div class="pdc-img">
+                <img src="assets/img/evidencia2.jpeg" alt="Lubricantes Premium" />
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="prod-detail-card">
+              <div class="pdc-img">
+                <img src="assets/img/evidencia3.jpeg" alt="Lubricantes Premium" />
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="prod-detail-card">
+              <div class="pdc-img">
+                <img src="assets/img/evidencia4.jpeg" alt="Lubricantes Premium" />
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="prod-detail-card">
+              <div class="pdc-img">
+                <img src="assets/img/evidencia5.jpeg" alt="Lubricantes Premium" />
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="prod-detail-card">
+              <div class="pdc-img">
+                <img src="assets/img/evidencia6.jpeg" alt="Lubricantes Premium" />
+              </div>
             </div>
           </div>
         </div>
+      </section>
 
-      </div>
-    </section>
 
-    <!-- ── CONSOLAS ── -->
-    <section id="consolas" class="cat-section">
-      <div class="cat-section-header">
-        <div class="csh-icon"><i class="fas fa-th-large"></i></div>
-        <div>
-          <h2 class="cat-section-title">Consolas Hospitalarias</h2>
-          <p class="cat-section-sub">Paneles de cabecera y consolas para áreas críticas</p>
-        </div>
-      </div>
-      <div class="row g-4">
-        <div class="col-md-6">
-          <div class="prod-detail-card">
-            <div class="pdc-img">
-              <img src="assets/img/equipo-re-manifacturado-camillas-1.jpg" alt="Consolas Hospitalarias"/>
-            </div>
-            <div class="pdc-body">
-              <span class="pdc-cat">Consolas</span>
-              <h3 class="pdc-title">Consolas de Cabecera</h3>
-              <p class="pdc-desc">Sistemas de consola integrada para cuartos de hospitalización, UCI y quirófanos. Incluyen tomas de oxígeno, aire médico y vacío según norma.</p>
-              <ul class="pdc-features">
-                <li>Tomas de O₂, Aire y Vacío</li>
-                <li>Canaletas de iluminación LED</li>
-                <li>Tomacorrientes regulados</li>
-                <li>Acabado antibacteriano</li>
-                <li>Instalación con red de gases medicinales</li>
-              </ul>
-              <a href="index.html#contacto" class="btn btn-primary-disah">Solicitar cotización</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="prod-detail-card">
-            <div class="pdc-img">
-              <img src="assets/img/Imagen6-540x550.jpg" alt="Panel Terapia Intensiva"/>
-            </div>
-            <div class="pdc-body">
-              <span class="pdc-cat">Consolas</span>
-              <h3 class="pdc-title">Paneles para Terapia Intensiva</h3>
-              <p class="pdc-desc">Paneles de UCI con mayor capacidad de tomas y mayor robustez estructural para áreas de alta demanda asistencial.</p>
-              <ul class="pdc-features">
-                <li>Diseño para UCI y áreas críticas</li>
-                <li>Múltiples tomas de gases medicinales</li>
-                <li>Panel eléctrico grado médico integrado</li>
-                <li>Sistema de alarmas centralizado</li>
-              </ul>
-              <a href="index.html#contacto" class="btn btn-primary-disah">Solicitar cotización</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── CORTINAS ── -->
-    <section id="cortinas" class="cat-section">
-      <div class="cat-section-header">
-        <div class="csh-icon"><i class="fas fa-border-all"></i></div>
-        <div>
-          <h2 class="cat-section-title">Cortinas Antibacterianas</h2>
-          <p class="cat-section-sub">Control de infecciones intrahospitalarias</p>
-        </div>
-      </div>
-      <div class="row g-4">
-        <div class="col-12">
-          <div class="prod-detail-card prod-detail-card--horiz">
-            <div class="pdc-img">
-              <img src="assets/img/equipo-re-manifacturado-camillas-1.jpg" alt="Cortinas Antibacterianas"/>
-            </div>
-            <div class="pdc-body">
-              <span class="pdc-cat">Cortinas Antibacterianas</span>
-              <h3 class="pdc-title">Cortinas Antibacterianas para Hospitales</h3>
-              <p class="pdc-desc">Divisiones de espacios con propiedades antibacterianas certificadas para uso en hospitales, clínicas y áreas de alta sensibilidad sanitaria. Reducen la propagación de microorganismos y facilitan la limpieza y desinfección.</p>
-              <ul class="pdc-features">
-                <li>Tratamiento antibacteriano certificado</li>
-                <li>Material resistente a desinfectantes hospitalarios</li>
-                <li>Disponible en múltiples colores y tamaños</li>
-                <li>Sistema de rieles y ganchos incluido</li>
-                <li>Cumple normativa de control de infecciones</li>
-              </ul>
-              <a href="index.html#contacto" class="btn btn-primary-disah">Solicitar cotización</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── OXÍGENO & GASES ── -->
-    <section id="oxigeno" class="cat-section">
-      <div class="cat-section-header">
-        <div class="csh-icon"><i class="fas fa-lungs"></i></div>
-        <div>
-          <h2 class="cat-section-title">Oxígeno & Gases Medicinales</h2>
-          <p class="cat-section-sub">Reguladores, flujómetros y accesorios para gases medicinales</p>
-        </div>
-      </div>
-      <div class="row g-4">
-
-        <div class="col-md-6 col-lg-4" id="regulador-oxigeno">
-          <div class="prod-mini-card">
-            <div class="pmc-img"><img src="assets/img/Imagen3-550x550.jpg" alt="Regulador Oxígeno INFRA"/></div>
-            <div class="pmc-body">
-              <span class="pmc-cat">Oxígeno & Gases</span>
-              <h4 class="pmc-title">Regulador de Oxígeno INFRA</h4>
-              <p class="pmc-desc">Regulador de alta calidad de la marca INFRA-Finesa para control preciso del flujo de oxígeno medicinal.</p>
-              <a href="index.html#contacto" class="pmc-link">Cotizar <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-          <div class="prod-mini-card">
-            <div class="pmc-img"><img src="assets/img/Imagen3-550x550.jpg" alt="Regulador Oxígeno Harris"/></div>
-            <div class="pmc-body">
-              <span class="pmc-cat">Oxígeno & Gases</span>
-              <h4 class="pmc-title">Regulador de Oxígeno Harris</h4>
-              <p class="pmc-desc">Regulador marca Harris de alta confiabilidad para uso hospitalario y domiciliario.</p>
-              <a href="index.html#contacto" class="pmc-link">Cotizar <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-          <div class="prod-mini-card">
-            <div class="pmc-img"><img src="assets/img/Imagen4-550x550.jpg" alt="Flujómetro de Oxígeno"/></div>
-            <div class="pmc-body">
-              <span class="pmc-cat">Oxígeno & Gases</span>
-              <h4 class="pmc-title">Flujómetro de Oxígeno</h4>
-              <p class="pmc-desc">Control preciso del flujo de oxígeno con escala flotante de alta legibilidad.</p>
-              <a href="index.html#contacto" class="pmc-link">Cotizar <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-          <div class="prod-mini-card">
-            <div class="pmc-img"><img src="assets/img/Imagen4-550x550.jpg" alt="Aditamento doble de oxígeno"/></div>
-            <div class="pmc-body">
-              <span class="pmc-cat">Oxígeno & Gases</span>
-              <h4 class="pmc-title">Aditamento Doble de Oxígeno</h4>
-              <p class="pmc-desc">Permite conectar dos flujómetros a una misma toma de pared para atender dos pacientes simultáneamente.</p>
-              <a href="index.html#contacto" class="pmc-link">Cotizar <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-          <div class="prod-mini-card">
-            <div class="pmc-img"><img src="assets/img/Imagen3-550x550.jpg" alt="Regulador de vacío"/></div>
-            <div class="pmc-body">
-              <span class="pmc-cat">Oxígeno & Gases</span>
-              <h4 class="pmc-title">Regulador de Vacío</h4>
-              <p class="pmc-desc">Regulador de vacío médico para succión controlada en procedimientos clínicos.</p>
-              <a href="index.html#contacto" class="pmc-link">Cotizar <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-          <div class="prod-mini-card">
-            <div class="pmc-img"><img src="assets/img/Imagen4-550x550.jpg" alt="Humidificador"/></div>
-            <div class="pmc-body">
-              <span class="pmc-cat">Oxígeno & Gases</span>
-              <h4 class="pmc-title">Humidificador</h4>
-              <p class="pmc-desc">Cámara humidificadora de burbuja para oxigenoterapia, disponible en distintas capacidades.</p>
-              <a href="index.html#contacto" class="pmc-link">Cotizar <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-          <div class="prod-mini-card">
-            <div class="pmc-img"><img src="assets/img/Imagen5-540x550.jpg" alt="Tomas de Oxígeno"/></div>
-            <div class="pmc-body">
-              <span class="pmc-cat">Oxígeno & Gases</span>
-              <h4 class="pmc-title">Tomas de Oxígeno</h4>
-              <p class="pmc-desc">Tomas de pared para oxígeno médico compatibles con diferentes estándares (NFPA, DIN).</p>
-              <a href="index.html#contacto" class="pmc-link">Cotizar <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-          <div class="prod-mini-card">
-            <div class="pmc-img"><img src="assets/img/Imagen6-540x550.jpg" alt="Tomas de Aire"/></div>
-            <div class="pmc-body">
-              <span class="pmc-cat">Oxígeno & Gases</span>
-              <h4 class="pmc-title">Tomas de Aire Médico</h4>
-              <p class="pmc-desc">Tomas de pared para aire médico comprimido grado médico, para instrumentos y ventiladores.</p>
-              <a href="index.html#contacto" class="pmc-link">Cotizar <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-          <div class="prod-mini-card">
-            <div class="pmc-img"><img src="assets/img/Imagen3-550x550.jpg" alt="Tanque de Oxígeno"/></div>
-            <div class="pmc-body">
-              <span class="pmc-cat">Oxígeno & Gases</span>
-              <h4 class="pmc-title">Tanque de Oxígeno</h4>
-              <p class="pmc-desc">Cilindros de oxígeno medicinal en diferentes capacidades para uso hospitalario y domiciliario.</p>
-              <a href="index.html#contacto" class="pmc-link">Cotizar <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ── MONITORES ── -->
-    <section id="monitores" class="cat-section">
-      <div class="cat-section-header">
-        <div class="csh-icon"><i class="fas fa-heartbeat"></i></div>
-        <div>
-          <h2 class="cat-section-title">Monitores & Diagnóstico</h2>
-          <p class="cat-section-sub">Equipos para monitoreo clínico y diagnóstico especializado</p>
-        </div>
-      </div>
-      <div class="row g-4">
-
-        <div class="col-md-6" id="monitor-intellivue">
-          <div class="prod-detail-card">
-            <div class="pdc-img">
-              <img src="assets/img/Imagen4-550x550.jpg" alt="Monitor Intellivue MP70"/>
-            </div>
-            <div class="pdc-body">
-              <span class="pdc-cat">Monitores & Diagnóstico</span>
-              <h3 class="pdc-title">Monitor de Signos Intellivue MP70</h3>
-              <p class="pdc-desc">Monitor multiparamétrico de alta gama con pantalla a color, conexión a red hospitalaria y soporte para módulos adicionales. Ideal para UCI y quirófanos.</p>
-              <ul class="pdc-features">
-                <li>Monitoreo de ECG, SpO₂, NIBP, Temperatura</li>
-                <li>Pantalla táctil a color de alta resolución</li>
-                <li>Conectividad HL7 / red hospitalaria</li>
-                <li>Alertas configurables por parámetro</li>
-              </ul>
-              <a href="index.html#contacto" class="btn btn-primary-disah">Solicitar cotización</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6">
-          <div class="prod-detail-card">
-            <div class="pdc-img">
-              <img src="assets/img/Imagen3-550x550.jpg" alt="Electrocardiograma"/>
-            </div>
-            <div class="pdc-body">
-              <span class="pdc-cat">Monitores & Diagnóstico</span>
-              <h3 class="pdc-title">Electrocardiograma</h3>
-              <p class="pdc-desc">Electrocardiógrafos de 3, 6 y 12 derivaciones para diagnóstico de patologías cardiacas en consultorios, urgencias y hospitalización.</p>
-              <ul class="pdc-features">
-                <li>12 derivaciones simultáneas</li>
-                <li>Impresión en papel térmico</li>
-                <li>Interpretación automática integrada</li>
-                <li>Almacenamiento de trazos en memoria</li>
-              </ul>
-              <a href="index.html#contacto" class="btn btn-primary-disah">Solicitar cotización</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-          <div class="prod-mini-card">
-            <div class="pmc-img"><img src="assets/img/Imagen4-550x550.jpg" alt="Desfibrilador"/></div>
-            <div class="pmc-body">
-              <span class="pmc-cat">Diagnóstico</span>
-              <h4 class="pmc-title">Desfibrilador</h4>
-              <p class="pmc-desc">Desfibriladores bifásicos para emergencias cardiovasculares, con DAE y modo manual.</p>
-              <a href="index.html#contacto" class="pmc-link">Cotizar <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-          <div class="prod-mini-card">
-            <div class="pmc-img"><img src="assets/img/Imagen3-550x550.jpg" alt="Termómetro Digital"/></div>
-            <div class="pmc-body">
-              <span class="pmc-cat">Diagnóstico</span>
-              <h4 class="pmc-title">Termómetro Digital</h4>
-              <p class="pmc-desc">Termómetros digitales clínicos de lectura rápida para uso institucional y domiciliario.</p>
-              <a href="index.html#contacto" class="pmc-link">Cotizar <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ── SUCCIÓN ── -->
-    <section id="succion" class="cat-section">
-      <div class="cat-section-header">
-        <div class="csh-icon"><i class="fas fa-filter"></i></div>
-        <div>
-          <h2 class="cat-section-title">Succión & Recolección</h2>
-          <p class="cat-section-sub">Sistemas y consumibles para manejo de fluidos y succión médica</p>
-        </div>
-      </div>
-      <div class="row g-4">
-
-        <div class="col-md-6 col-lg-4">
-          <div class="prod-mini-card">
-            <div class="pmc-img"><img src="assets/img/Imagen5-540x550.jpg" alt="Aspirador de Secreciones"/></div>
-            <div class="pmc-body">
-              <span class="pmc-cat">Succión</span>
-              <h4 class="pmc-title">Aspirador de Secreciones</h4>
-              <p class="pmc-desc">Aspiradores eléctricos portátiles y de pared para succión de secreciones en áreas clínicas.</p>
-              <a href="index.html#contacto" class="pmc-link">Cotizar <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-          <div class="prod-mini-card">
-            <div class="pmc-img"><img src="assets/img/Imagen6-540x550.jpg" alt="Frasco de Succión"/></div>
-            <div class="pmc-body">
-              <span class="pmc-cat">Consumibles</span>
-              <h4 class="pmc-title">Frasco de Succión</h4>
-              <p class="pmc-desc">Frascos colectores de succión de 1000 y 2000 ml, reutilizables con tapa hermética.</p>
-              <a href="index.html#contacto" class="pmc-link">Cotizar <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-          <div class="prod-mini-card">
-            <div class="pmc-img"><img src="assets/img/Imagen5-540x550.jpg" alt="Recolector de Fluidos 1500ml"/></div>
-            <div class="pmc-body">
-              <span class="pmc-cat">Consumibles</span>
-              <h4 class="pmc-title">Recolector de Fluidos 1500 ml</h4>
-              <p class="pmc-desc">Bolsas recolectoras desechables de 1500 ml para manejo seguro de fluidos quirúrgicos.</p>
-              <a href="index.html#contacto" class="pmc-link">Cotizar <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-          <div class="prod-mini-card">
-            <div class="pmc-img"><img src="assets/img/Imagen6-540x550.jpg" alt="Recolector de Fluidos 3000ml"/></div>
-            <div class="pmc-body">
-              <span class="pmc-cat">Consumibles</span>
-              <h4 class="pmc-title">Recolector de Fluidos 3000 ml</h4>
-              <p class="pmc-desc">Bolsa recolectora de alta capacidad para procedimientos de larga duración.</p>
-              <a href="index.html#contacto" class="pmc-link">Cotizar <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-          <div class="prod-mini-card">
-            <div class="pmc-img"><img src="assets/img/Imagen5-540x550.jpg" alt="Recolector de Fluidos 1000ml"/></div>
-            <div class="pmc-body">
-              <span class="pmc-cat">Consumibles</span>
-              <h4 class="pmc-title">Recolector de Fluidos 1000 ml</h4>
-              <p class="pmc-desc">Bolsa desechable de 1000 ml para aspiración y recolección de secreciones.</p>
-              <a href="index.html#contacto" class="pmc-link">Cotizar <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ── CAMILLAS ── -->
-    <section id="camillas" class="cat-section">
-      <div class="cat-section-header">
-        <div class="csh-icon"><i class="fas fa-procedures"></i></div>
-        <div>
-          <h2 class="cat-section-title">Camillas & Movilidad</h2>
-          <p class="cat-section-sub">Camillas re-manufacturadas con garantía</p>
-        </div>
-      </div>
-
-      <div class="row g-4">
-        <div class="col-md-6">
-          <div class="prod-detail-card">
-            <div class="pdc-img">
-              <img src="assets/img/equipo-re-manifacturado-camillas-1.jpg" alt="Camilla"/>
-              <span class="pdc-badge pdc-badge--green">Con Garantía</span>
-            </div>
-            <div class="pdc-body">
-              <span class="pdc-cat">Camillas & Movilidad</span>
-              <h3 class="pdc-title">Camillas Re-manufacturadas</h3>
-              <p class="pdc-desc">Camillas de traslado y hospitalización re-manufacturadas con garantía. Revisión integral de estructura, colchoneta, barandales y sistema de ruedas.</p>
-              <ul class="pdc-features">
-                <li>Re-manufactura certificada</li>
-                <li>Garantía en partes y mano de obra</li>
-                <li>Colchoneta de reemplazo incluida</li>
-                <li>Disponible en diferentes configuraciones</li>
-              </ul>
-              <a href="index.html#contacto" class="btn btn-primary-disah">Solicitar cotización</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="prod-detail-card">
-            <div class="pdc-img">
-              <img src="assets/img/equipo-re-manifacturado-camillas-1.jpg" alt="Camilla"/>
-              <span class="pdc-badge pdc-badge--green">Con Garantía</span>
-            </div>
-            <div class="pdc-body">
-              <span class="pdc-cat">Camillas & Movilidad</span>
-              <h3 class="pdc-title">Camillas Re-manufacturadas</h3>
-              <p class="pdc-desc">Camillas de traslado y hospitalización re-manufacturadas con garantía. Revisión integral de estructura, colchoneta, barandales y sistema de ruedas.</p>
-              <ul class="pdc-features">
-                <li>Re-manufactura certificada</li>
-                <li>Garantía en partes y mano de obra</li>
-                <li>Colchoneta de reemplazo incluida</li>
-                <li>Disponible en diferentes configuraciones</li>
-              </ul>
-              <a href="index.html#contacto" class="btn btn-primary-disah">Solicitar cotización</a>
-            </div>
-          </div>
-          
-        </div>
-      </div>
-      
-    </section>
-
-  </main>
-</div>
-
-<!-- Footer -->
-<footer class="site-footer">
-  <div class="container-xl">
-    <div class="row g-4 footer-top">
-      <div class="col-lg-4">
-        <img src="assets/img/LOGO-DISAH-AZÚL.png" alt="DISAH" class="footer-logo"/>
-        <p class="footer-desc">Distribuidores de equipo médico y fabricantes de compresores de aire grado médico.</p>
-        <div class="footer-social">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-linkedin-in"></i></a>
-          <a href="https://wa.me/528113606580" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        </div>
-      </div>
-      <div class="col-sm-6 col-lg-2 offset-lg-1">
-        <h6 class="footer-heading">Empresa</h6>
-        <ul class="footer-links">
-          <li><a href="index.html#quienes-somos">Quiénes Somos</a></li>
-          <li><a href="index.html#clientes">Clientes</a></li>
-          <li><a href="index.html#contacto">Contacto</a></li>
-        </ul>
-      </div>
-      <div class="col-sm-6 col-lg-3">
-        <h6 class="footer-heading">Productos</h6>
-        <ul class="footer-links">
-          <li><a href="#compresores">Compresores y Vacío</a></li>
-          <li><a href="#consolas">Consolas</a></li>
-          <li><a href="#oxigeno">Oxígeno & Gases</a></li>
-          <li><a href="#monitores">Monitores</a></li>
-        </ul>
-      </div>
-      <div class="col-lg-2">
-        <h6 class="footer-heading">Contacto</h6>
-        <ul class="footer-links">
-          <li><a href="tel:8113606580"><i class="fas fa-phone me-1"></i>811 360 6580</a></li>
-          <li><a href="https://wa.me/528113606580" target="_blank"><i class="fab fa-whatsapp me-1"></i>WhatsApp</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2025 DISAH – Desarrolladora Internacional en Salud Hospitalaria SA de CV</span>
-      <span>Ruiz Cortines #306, Col. Industrias del Vidrio, San Nicolás de los Garza, N.L.</span>
-    </div>
+    </main>
   </div>
-</footer>
 
-<a href="https://wa.me/528113606580?text=Hola%20DISAH%2C%20me%20interesa%20informaci%C3%B3n%20sobre%20sus%20equipos" 
-   target="_blank" class="wa-fab">
-  <i class="fab fa-whatsapp"></i>
-  <span class="wa-pulse"></span>
-</a>
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container-xl">
+      <div class="row g-4 footer-top">
+        <div class="col-lg-4">
+          <img src="assets/img/LOGO-DISAH-AZÚL.png" alt="DISAH" class="footer-logo" />
+          <p class="footer-desc">Distribuidores de equipo médico y fabricantes de compresores de aire grado médico.</p>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/francisco.bahena.374549" target="_blank"><i
+                class="fab fa-facebook-f"></i></a>
+            <a href="https://wa.me/528113606580" target="_blank"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-2 offset-lg-1">
+          <h6 class="footer-heading">Empresa</h6>
+          <ul class="footer-links">
+            <li><a href="index.html#quienes-somos">Quiénes Somos</a></li>
+            <li><a href="index.html#clientes">Clientes</a></li>
+            <li><a href="index.html#contacto">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <h6 class="footer-heading">Productos</h6>
+          <ul class="footer-links">
+            <li><a href="#compresores">Compresores y Vacío</a></li>
+            <li><a href="#consolas">Consolas</a></li>
+            <li><a href="#oxigeno">Oxígeno & Gases</a></li>
+            <li><a href="#monitores">Monitores</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2">
+          <h6 class="footer-heading">Contacto</h6>
+          <ul class="footer-links">
+            <li><a href="tel:8113606580"><i class="fas fa-phone me-1"></i>811 360 6580</a></li>
+            <li><a href="https://wa.me/528124667682" target="_blank"><i class="fab fa-whatsapp me-1"></i>WhatsApp</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 DISAH – Desarrolladora Internacional en Salud Hospitalaria SA de CV</span>
+        <span>Ruiz Cortines #306, Col. Industrias del Vidrio, San Nicolás de los Garza, N.L.</span>
+      </div>
+    </div>
+  </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-// Sidebar active on scroll
-const sections = document.querySelectorAll('.cat-section');
-const sideLinks = document.querySelectorAll('.sn-link');
-window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 140) current = s.id; });
-  sideLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === `#${current}`));
-}, { passive: true });
+  <a href="https://wa.me/528124667682?text=Hola%2C%20me%20interesa%20informaci%C3%B3n%20sobre%20sus%20equipos"
+    target="_blank" class="wa-fab">
+    <i class="fab fa-whatsapp"></i>
+    <span class="wa-pulse"></span>
+  </a>
 
-// Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const t = document.querySelector(a.getAttribute('href'));
-    if (!t) return; e.preventDefault();
-    window.scrollTo({ top: t.offsetTop - 100, behavior: 'smooth' });
-  });
-});
-</script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Sidebar active on scroll
+    const sections = document.querySelectorAll('.cat-section');
+    const sideLinks = document.querySelectorAll('.sn-link');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => { if (window.scrollY >= s.offsetTop - 140) current = s.id; });
+      sideLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === `#${current}`));
+    }, { passive: true });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const t = document.querySelector(a.getAttribute('href'));
+        if (!t) return; e.preventDefault();
+        window.scrollTo({ top: t.offsetTop - 100, behavior: 'smooth' });
+      });
+    });
+
+    // Lightbox
+    const modal = document.getElementById('lightboxModal');
+    const lightboxImg = document.getElementById('lightboxImg');
+
+    document.querySelectorAll('.pdc-img img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        modal.style.display = 'flex';
+      });
+    });
+
+    modal.addEventListener('click', () => {
+      modal.style.display = 'none';
+      lightboxImg.src = '';
+    });
+  </script>
 </body>
+
 </html>

@@ -168,7 +168,10 @@
   width: 100%; height: 100%;
   object-fit: cover;
   transition: transform .5s ease;
+  cursor: zoom-in;
 }
+
+
 .prod-detail-card:hover .pdc-img img { transform: scale(1.04); }
 .pdc-badge {
   position: absolute;
