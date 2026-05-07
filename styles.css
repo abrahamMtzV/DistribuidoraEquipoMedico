@@ -662,6 +662,31 @@ img {
   height: 100%;
   object-fit: cover;
   transition: transform .5s ease;
+
+}
+
+.pc-img-wrap video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+.pc-img-wrap.pc-img-vertical {
+  background: #000;
+}
+
+.pc-img-wrap.pc-img-vertical video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top 20%;  /* sube el encuadre para evitar las barras */
+}
+
+#carrollimagen {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform .5s ease;
 }
 
 .prod-card:hover .pc-img-wrap img {
