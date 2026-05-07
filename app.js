@@ -92,46 +92,68 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ── Formulario de contacto ────────────────────
-  const form = document.getElementById('contactForm');
-  if (form) {
-    form.addEventListener('submit', e => {
-      e.preventDefault();
+const form = document.getElementById('contactForm');
+if (form) {
+  form.addEventListener('submit', e => {
+    e.preventDefault();
 
-      const checkbox = document.getElementById('aceptaPrivacidad');
-      if (!checkbox.checked) {
-        checkbox.classList.add('is-invalid');
-        checkbox.focus();
-        return;
+    // 1. Primero validar todos los campos requeridos
+    const campos = form.querySelectorAll('[required]');
+    let valido = true;
+
+    campos.forEach(campo => {
+      if (!campo.value.trim() && campo.type !== 'checkbox') {
+        campo.classList.add('is-invalid');
+        valido = false;
+      } else if (campo.type !== 'checkbox') {
+        campo.classList.remove('is-invalid');
       }
-      checkbox.classList.remove('is-invalid');
-
-      const btn = form.querySelector('button[type=submit]');
-      const original = btn.innerHTML;
-      btn.disabled = true;
-      btn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Enviando...';
-
-      emailjs.sendForm('service_zrpmrb8', 'template_0garyxt', form)
-        .then(() => {
-          btn.innerHTML = '<i class="fas fa-check me-2"></i>¡Mensaje enviado!';
-          btn.style.background = '#16486e';
-          setTimeout(() => {
-            btn.innerHTML = original;
-            btn.style.background = '';
-            btn.disabled = false;
-            form.reset();
-          }, 3500);
-        })
-        .catch(() => {
-          btn.innerHTML = '<i class="fas fa-times me-2"></i>Error al enviar, completa correctamente los datos.';
-          btn.style.background = '#c0392b';
-          setTimeout(() => {
-            btn.innerHTML = original;
-            btn.style.background = '';
-            btn.disabled = false;
-          }, 3000);
-        });
     });
-  }
+
+    // 2. Luego validar el checkbox por separado
+    const checkbox = document.getElementById('aceptaPrivacidad');
+    if (!checkbox.checked) {
+      checkbox.classList.add('is-invalid');
+      valido = false;
+    } else {
+      checkbox.classList.remove('is-invalid');
+    }
+
+    if (!valido) return;
+
+    // 3. Solo si todo está correcto, enviar
+    const btn = form.querySelector('button[type=submit]');
+    const original = btn.innerHTML;
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Enviando...';
+
+    emailjs.sendForm('service_zrpmrb8', 'template_0garyxt', form)
+      .then(() => {
+        btn.innerHTML = '<i class="fas fa-check me-2"></i>¡Mensaje enviado!';
+        btn.style.background = '#16486e';
+        setTimeout(() => {
+          btn.innerHTML = original;
+          btn.style.background = '';
+          btn.disabled = false;
+          form.reset();
+        }, 3500);
+      })
+      .catch(() => {
+        btn.innerHTML = '<i class="fas fa-times me-2"></i>Error al enviar, completa correctamente los datos.';
+        btn.style.background = '#c0392b';
+        setTimeout(() => {
+          btn.innerHTML = original;
+          btn.style.background = '';
+          btn.disabled = false;
+        }, 3000);
+      });
+  });
+
+  // Quitar is-invalid al empezar a escribir
+  form.querySelectorAll('.cf-input').forEach(input => {
+    input.addEventListener('input', () => input.classList.remove('is-invalid'));
+  });
+}
 
   // ── Stagger animación cards (entrada inicial) ─
   document.querySelectorAll('.prod-item').forEach((el, i) => {
