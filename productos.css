@@ -155,6 +155,125 @@
 .prod-detail-card--horiz .pdc-img {
   width: 340px; flex-shrink: 0;
 }
+
+
+
+/*ANTES DE LOS PRODUCTOS. LA GALERIA*/
+
+/* ═══════════════════════════════════════
+   GALERÍA – Slider Horizontal Compacto
+═══════════════════════════════════════ */
+
+.gallery-grid {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 8px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--cyan, #07b4de) transparent;
+}
+
+.gallery-grid::-webkit-scrollbar {
+  height: 5px;
+}
+
+.gallery-grid::-webkit-scrollbar-thumb {
+  background: var(--cyan, #07b4de);
+  border-radius: 4px;
+}
+
+.gallery-grid::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.gallery-item {
+  flex: 0 0 260px;
+  height: 195px;
+  border-radius: var(--radius, 12px);
+  overflow: hidden;
+  cursor: zoom-in;
+  scroll-snap-align: start;
+  position: relative;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .5s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.06);
+}
+
+
+/* ═══════════════════════════════════════
+   CARRUSEL DE FILTROS – Thumbnails
+═══════════════════════════════════════ */
+
+.filtros-carousel-wrapper {
+  margin-top: 2rem;
+}
+
+.filtro-thumb {
+  aspect-ratio: 1/1;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: zoom-in;
+}
+
+.filtro-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .4s ease;
+}
+
+.filtro-thumb:hover img {
+  transform: scale(1.06);
+}
+
+/* Flechas visibles sobre fondo claro */
+#carouselFiltrosGaleria .carousel-control-prev-icon,
+#carouselFiltrosGaleria .carousel-control-next-icon {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  padding: 1.2rem;
+  background-size: 50%;
+}
+
+/* Indicadores más visibles */
+#carouselFiltrosGaleria .carousel-indicators button {
+  background-color: var(--cyan, #07b4de);
+  opacity: 0.4;
+}
+
+#carouselFiltrosGaleria .carousel-indicators button.active {
+  opacity: 1;
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 768px) {
+  .gallery-item {
+    flex: 0 0 220px;
+    height: 165px;
+  }
+}
+
+@media (max-width: 576px) {
+  .gallery-item {
+    flex: 0 0 180px;
+    height: 135px;
+    border-radius: 8px;
+  }
+}
+/*FIN DE GALERIA*/
+
 @media (max-width: 768px) {
   .prod-detail-card--horiz { flex-direction: column; }
   .prod-detail-card--horiz .pdc-img { width: 100%; }
